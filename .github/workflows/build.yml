@@ -17,7 +17,6 @@ jobs:
           ruby-version: 2.7
       - run: gem install asciidoctor
       - run: hugo
-        working-directory: site
       - name: "Set up Docker Buildx"
         uses: docker/setup-buildx-action@v1
       - name: "Login to GHCR"
@@ -30,5 +29,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          context: site
+          context: .
           tags: ghcr.io/irus/open_pirs:main
