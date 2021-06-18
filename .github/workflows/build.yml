@@ -1,0 +1,34 @@
+name: "Build"
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: "Build on Ubuntu"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "0.83.1"
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+      - run: gem install asciidoctor
+      - run: hugo
+        working-directory: site
+      - name: "Set up Docker Buildx"
+        uses: docker/setup-buildx-action@v1
+      - name: "Login to GHCR"
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password:  ${{ secrets.GITHUB_TOKEN }}
+      - name: "Build and push"
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          context: site
+          tags: ghcr.io/irus/open_pirs:main

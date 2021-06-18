@@ -1,1 +1,1 @@
-# OpenPirs
+# Pirs

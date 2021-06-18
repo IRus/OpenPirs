@@ -1,0 +1,21 @@
+baseURL: "https://supolka.com/"
+languageCode: "ru_BY"
+title: "Pirs"
+
+theme: "hyde"
+
+params:
+  description: "Сообщество Пирс"
+  themeColor: "theme-base-0d"
+  copyright: ""
+  layoutReverse: false
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+menus:
+  main:
+    - Name: "Contribute"
+      URL: "https://github.com/IRus/OpenPirs"

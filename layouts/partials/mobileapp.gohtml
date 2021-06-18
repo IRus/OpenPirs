@@ -1,0 +1,33 @@
+{{/* {{< mobileapp android="..." ios="..." >}} */}}
+
+<style>
+  .mobileapp-image-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .mobileapp-image-column {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  .mobileapp-image-column img {
+    width: 200px;
+  }
+</style>
+
+<div class="mobileapp-image-row">
+  <div class="mobileapp-image-column">
+    <a href="{{.Get "ios" }}">
+      <img src="{{ "images/app-store-badge.svg" | relURL }}" alt="App Store">
+    </a>
+  </div>
+
+  <div class="mobileapp-image-column">
+    <a href="{{.Get "android" }}">
+      <img src="{{ "images/google-play-badge.png" | relURL }}" alt="Google Play">
+    </a>
+  </div>
+</div>
