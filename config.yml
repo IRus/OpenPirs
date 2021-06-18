@@ -7,7 +7,7 @@ theme: "hyde"
 params:
   description: "Сообщество Пирс"
   themeColor: "theme-base-0d"
-  copyright: ""
+  copyright: " "
   layoutReverse: false
 
 markup:
